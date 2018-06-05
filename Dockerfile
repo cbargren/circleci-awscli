@@ -1,3 +1,7 @@
 FROM circleci/node:8.9.0
 
-RUN sudo apt-get -y -qq install awscli
+ADD VERSION .
+
+# RUN sudo apt-get -y -qq install awscli
+RUN sudo apt-get install python3-pip
+RUN sudo pip3 install --upgrade awscli
