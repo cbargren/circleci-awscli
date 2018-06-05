@@ -1,5 +1,7 @@
 set -ex
 
+RELEASE_LEVEL=${1:-patch}
+
 # docker hub username
 USERNAME=cbargren
 # image name
@@ -9,7 +11,7 @@ IMAGE=circleci-awscli
 git pull
 
 # bump version
-docker run --rm -v "$PWD":/app treeder/bump patch
+docker run --rm -v "$PWD":/app treeder/bump $RELEASE_LEVEL
 version=`cat VERSION`
 echo "version: $version"
 
